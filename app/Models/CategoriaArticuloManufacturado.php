@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class CategoriaArticuloManufacturado extends Model
 {
     use HasFactory;
+
+    public function articulosManufacturados()
+    {
+        return $this->hasMany(ArticuloManufacturado::class);
+    }
 }
