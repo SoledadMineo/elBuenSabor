@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->integer('cantidad');
             $table->decimal('subtotal', 10, 2);
+            $table->unsignedBigInteger('factura_venta_id');
+            $table->foreign('factura_venta_id')->references('id')->on('factura_venta')->onDelete('cascade');
             $table->timestamps();
         });
     }

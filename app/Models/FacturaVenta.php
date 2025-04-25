@@ -17,9 +17,15 @@ class FacturaVenta extends Model
         'subtotal', 
         'descuento',
         'gastosEnvio',
-        'totalVenta'
+        'totalVenta',
+        'pedidoVenta_id'
     ];
 
+    public function pedidoVenta()
+    {
+        return $this->belongsTo(PedidoVenta::class);
+    }
+    
     public function detalles()
     {
         return $this->hasMany(FacturaVentaDetalle::class);

@@ -12,10 +12,10 @@ return new class extends Migration
             $table->id();
             $table->decimal('cantidad', 10, 2);
             $table->decimal('subtotal', 10, 2);
-            $table->timestamps();
-            // Otros campos...
             $table->unsignedBigInteger('promocion_id')->nullable();
             $table->foreign('promocion_id')->references('id')->on('promociones')->onDelete('set null');
+            $table->unsignedBigInteger('pedido_venta_id');
+            $table->foreign('pedido_venta_id')->references('id')->on('pedido_venta')->onDelete('cascade');
             $table->timestamps();
         });
     }

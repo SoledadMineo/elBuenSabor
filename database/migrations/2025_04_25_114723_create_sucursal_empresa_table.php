@@ -14,8 +14,8 @@ return new class extends Migration
             $table->string('horarioApertura');
             $table->unsignedBigInteger('horarioCierre');
             $table->timestamps();
-        
-            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
+            $table->foreign('domicilio_id')->references('id')->on('domicilio')->onDelete('set null');
+            $table->foreign('empresa_id')->references('id')->on('empresa')->onDelete('cascade');
         });        
     }
 

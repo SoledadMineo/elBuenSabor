@@ -12,6 +12,11 @@ class Provincia extends Model
     protected $table = 'provincia';
     protected $fillable = ['nombre', 'pais_id'];
 
+    public function pais()
+    {
+        return $this->belongsTo(Pais::class);
+    }
+    
     public function localidades()
     {
         return $this->belongsTo(Localidad::class);

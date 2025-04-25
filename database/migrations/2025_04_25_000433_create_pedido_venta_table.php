@@ -20,6 +20,12 @@ return new class extends Migration
             $table->enum('tipoEnvio', ['DELIVERY', 'TAKE AWAY']);
             $table->enum('formaPago', ['EFECTIVO', 'MERCADO PAGO']);
             $table->date('fechaPedido');
+            $table->unsignedBigInteger('empleado_id');
+            $table->unsignedBigInteger('cliente_id');
+
+            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

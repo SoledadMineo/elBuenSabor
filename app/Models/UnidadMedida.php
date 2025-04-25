@@ -11,4 +11,9 @@ class UnidadMedida extends Model
     protected $table = 'unidad_medidas';
     protected $fillable = ['denominacion'];
 
+    public function articulosInsumo()
+    {
+        return $this->hasMany(ArticuloInsumo::class);
+    }
+
 }

@@ -19,4 +19,9 @@ class PedidoVentaDetalle extends Model
     {
         return $this->belongsTo(Promocion::class);
     }
+
+    public function pedidoVenta()
+    {
+        return $this->belongsTo(PedidoVenta::class);
+    }
 }

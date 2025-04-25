@@ -17,6 +17,8 @@ return new class extends Migration
             $table->decimal('descuento', 10, 2);
             $table->decimal('gastosEnvio', 10, 2);
             $table->decimal('totalVenta', 10, 2);
+            $table->unsignedBigInteger('pedido_venta_id');
+            $table->foreign('pedido_venta_id')->references('id')->on('pedido_venta')->onDelete('cascade');
             $table->timestamps();
         });
     }

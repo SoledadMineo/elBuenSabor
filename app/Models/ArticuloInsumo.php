@@ -13,6 +13,19 @@ class ArticuloInsumo extends Model
         'denominacion', 
         'precioCompra', 
         'precioVenta',
-        'esParaElaborar'];
+        'esParaElaborar',
+        'categoria_articulo_id',
+        'unidad_medida_id'
+    ];
+
+    public function categoriaArticulo()
+    {
+        return $this->belongsTo(CategoriaArticulo::class);
+    }
+
+    public function unidadMedida()
+    {
+        return $this->belongsTo(UnidadMedida::class);
+    }
 
 }

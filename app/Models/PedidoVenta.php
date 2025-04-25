@@ -21,7 +21,10 @@ class PedidoVenta extends Model
         'estado',
         'tipoEnvio',
         'formaPago',
-        'fechaPedido'
+        'fechaPedido',
+        'cliente_id',
+        'empleado_id',
+        'domicilio_entrega_id'
     ];
 
     public function empleados()
