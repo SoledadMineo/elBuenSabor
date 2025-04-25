@@ -8,16 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('factura_venta_detalles', function (Blueprint $table) {
+        Schema::create('articulo_manufacturado_detalles', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad');
-            $table->decimal('subtotal', 10, 2);
+            $table->decimal('cantidad', 10, 2);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('factura_venta_detalles');
+        Schema::dropIfExists('articulo_manufacturado_detalles');
     }
 };

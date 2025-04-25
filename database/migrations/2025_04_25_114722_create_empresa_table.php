@@ -8,16 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('factura_venta_detalles', function (Blueprint $table) {
-            $table->id();
-            $table->integer('cantidad');
-            $table->decimal('subtotal', 10, 2);
+        Schema::create('empresa', function (Blueprint $table) {
+            $table->id()->unique();
+            $table->string('nombre');
+            $table->string('razon_social');
+            $table->bigInteger('cuil')->unique();
             $table->timestamps();
         });
+        
     }
 
     public function down()
     {
-        Schema::dropIfExists('factura_venta_detalles');
+        Schema::dropIfExists('empresa');
     }
 };

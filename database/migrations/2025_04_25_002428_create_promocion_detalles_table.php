@@ -10,8 +10,9 @@ return new class extends Migration
     {
         Schema::create('promocion_detalles', function (Blueprint $table) {
             $table->id();
+            $table->integer('cantidad');
+            $table->timestamps();
             $table->unsignedBigInteger('promocion_id');
-            $table->string('detalle');
             $table->timestamps();
 
             // Relación con Promoción

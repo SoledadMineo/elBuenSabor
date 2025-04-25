@@ -8,15 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('sucursal_empresa', function (Blueprint $table) {
+        Schema::create('sucursal_empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('horarioApertura');
-            $table->string('horarioCierre');
-            $table->unsignedBigInteger('domicilio_id')->unique()->nullable();
-            $table->foreign('domicilio_id')->references('id')->on('domicilio')->onDelete('cascade');
+            $table->unsignedBigInteger('horarioCierre');
             $table->timestamps();
-        });
+        
+            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
+        });        
     }
 
     public function down()

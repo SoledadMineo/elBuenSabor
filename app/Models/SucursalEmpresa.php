@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class SucursalEmpresa extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'nombre', 
+        'horarioApertura', 
+        'horarioCierre',
+        'empresa_id'
+    ];
 
-    protected $table = 'sucursal_empresa';
-    protected $fillable = ['nombre', 'horarioApertura', 'horarioCierre', 'domicilio_id'];
-
-    public function domicilio()
+    public function empresa()
     {
-        return $this->belongsTo(Domicilio::class);
+        return $this->belongsTo(Empresa::class);
+    }
+
+    public function insumos()
+    {
+        return $this->hasMany(SucursalInsumo::class);
     }
 }

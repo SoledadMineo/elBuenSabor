@@ -10,8 +10,6 @@ return new class extends Migration
     {
         Schema::create('datos_mercado_pago', function (Blueprint $table) {
             $table->id();
-
-            // Campos de MercadoPago
             $table->dateTime('date_created');
             $table->dateTime('date_approved')->nullable();
             $table->dateTime('date_last_updated')->nullable();
@@ -33,6 +31,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('datos_mercado_pagos');
+        Schema::dropIfExists('datos_mercado_pago');
     }
 };

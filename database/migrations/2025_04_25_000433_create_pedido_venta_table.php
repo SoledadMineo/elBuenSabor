@@ -16,9 +16,9 @@ return new class extends Migration
             $table->decimal('gastosEnvio', 10, 2);
             $table->decimal('total', 10, 2);
             $table->decimal('totalCosto', 10, 2);
-            $table->enum('estado', ['PENDIENTE', 'EN_PROCESO', 'FINALIZADO', 'CANCELADO']);
-            $table->enum('tipoEnvio', ['DELIVERY', 'RETIRO']);
-            $table->enum('formaPago', ['EFECTIVO', 'TARJETA', 'TRANSFERENCIA']);
+            $table->enum('estado', ['PREPARACION', 'PENDIENTE', 'CANCELADO', 'RECHAZADO', 'ENTREGADO']);
+            $table->enum('tipoEnvio', ['DELIVERY', 'TAKE AWAY']);
+            $table->enum('formaPago', ['EFECTIVO', 'MERCADO PAGO']);
             $table->date('fechaPedido');
             $table->timestamps();
         });

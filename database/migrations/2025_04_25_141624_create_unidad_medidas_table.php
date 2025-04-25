@@ -8,16 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
+        Schema::create('unidad_medidas', function (Blueprint $table) {
             $table->id();
-            $table->string('auth0Id');
-            $table->string('username')->unique();
+            $table->string('denominacion');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('unidad_medidas');
     }
 };

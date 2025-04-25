@@ -9,6 +9,17 @@ class FacturaVenta extends Model
 {
     use HasFactory;
 
+    protected $table = 'factura_venta';
+    protected $fillable = [
+        'fechaFacturacion', 
+        'numeroComprobante', 
+        'formaPago',
+        'subtotal', 
+        'descuento',
+        'gastosEnvio',
+        'totalVenta'
+    ];
+
     public function detalles()
     {
         return $this->hasMany(FacturaVentaDetalle::class);

@@ -8,14 +8,13 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('empleado', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
             $table->string('telefono');
             $table->string('email');
-            $table->unsignedBigInteger('domicilio_id')->unique()->nullable();
-            $table->foreign('domicilio_id')->references('id')->on('domicilio')->onDelete('cascade');
+            $table->enum('Rol', ['ADMIN', 'EMPLEADO', 'CLIENTE']);
             $table->unsignedBigInteger('usuario_id')->unique()->nullable();
             $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
             $table->timestamps();
@@ -24,6 +23,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('empleado');
     }
 };

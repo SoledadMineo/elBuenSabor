@@ -9,6 +9,12 @@ class PedidoVentaDetalle extends Model
 {
     use HasFactory;
 
+    protected $table = 'pedido_venta_detalles';
+    protected $fillable = [
+        'cantidad', 
+        'subtotal', 
+        'promocion_id'];
+
     public function promocion()
     {
         return $this->belongsTo(Promocion::class);

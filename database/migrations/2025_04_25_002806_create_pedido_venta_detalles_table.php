@@ -10,6 +10,9 @@ return new class extends Migration
     {
         Schema::create('pedido_venta_detalles', function (Blueprint $table) {
             $table->id();
+            $table->decimal('cantidad', 10, 2);
+            $table->decimal('subtotal', 10, 2);
+            $table->timestamps();
             // Otros campos...
             $table->unsignedBigInteger('promocion_id')->nullable();
             $table->foreign('promocion_id')->references('id')->on('promociones')->onDelete('set null');

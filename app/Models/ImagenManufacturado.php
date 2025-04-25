@@ -9,6 +9,12 @@ class ImagenManufacturado extends Model
 {
     use HasFactory;
 
+    protected $table = 'imagen_manufacturado';
+    protected $fillable = [
+        'denominacion', 
+        'articulo_manufacturado_id'
+    ];
+
     public function imagenes()
     {
         return $this->hasMany(ImagenManufacturado::class);

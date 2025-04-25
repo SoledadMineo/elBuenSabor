@@ -11,7 +11,14 @@ class Empleado extends Model
 
     protected $table = 'empleado';
 
-    protected $fillable = ['nombre', 'apellido', 'telefono', 'email', 'perfil', 'usuario_id'];
+    protected $fillable = [
+        'nombre', 
+        'apellido', 
+        'telefono', 
+        'email', 
+        'Rol', 
+        'usuario_id'
+    ];
 
     public function usuario()
     {

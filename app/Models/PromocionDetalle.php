@@ -9,6 +9,12 @@ class PromocionDetalle extends Model
 {
     use HasFactory;
 
+    protected $table = 'promocion_detalles';
+    protected $fillable = [
+        'cantidad', 
+        'promocion_id'
+    ];
+
     public function promocion()
     {
         return $this->belongsTo(Promocion::class);
