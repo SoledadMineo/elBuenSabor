@@ -8,15 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('categoria_articulo_manufacturado', function (Blueprint $table) {
+        Schema::create('promociones', function (Blueprint $table) {
             $table->id();
             $table->string('denominacion');
+            $table->date('fecha_desde');
+            $table->date('fecha_hasta');
+            $table->double('descuento');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('categoria_articulo_manufacturado');
+        Schema::dropIfExists('promocions');
     }
 };

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PromocionDetalle extends Model
+class FacturaVentaDetalle extends Model
 {
     use HasFactory;
 
-    public function promocion()
+    public function facturaVenta()
     {
-        return $this->belongsTo(Promocion::class);
+        return $this->belongsTo(FacturaVenta::class);
     }
 }
