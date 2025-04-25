@@ -7,21 +7,32 @@ use Illuminate\Http\Request;
 
 class ArticuloManufacturadoController extends Controller
 {
-    public function store(Request $request)
-    {
-        // Datos hardcodeados por ahora para probar
-        $nuevoArticulo = new ArticuloManufacturado();
-        $nuevoArticulo->denominacion = 'Pizza Margherita';
-        $nuevoArticulo->descripcion = 'Pizza clásica con tomate, mozzarella y albahaca';
-        $nuevoArticulo->precio_venta = 7500;
-        $nuevoArticulo->precio_costo = 4000;
-        $nuevoArticulo->tiempo_estimado = 20;
-        $nuevoArticulo->id_categoriaArticuloManufacturado = 1;
-        $nuevoArticulo->save();
 
-        return response()->json([
-            'message' => 'Artículo manufacturado creado con éxito',
-            'articulo' => $nuevoArticulo
-        ], 201);
+    public function crearArticuloConIngredientes()
+    {
+        $articulo = ArticuloManufacturado::create([
+            'denominacion' => 'Pizza napolitana',
+            'descripcion' => 'Pizza con tomate natural, mozzarella, ajo y orégano',
+            'precio_venta' => 3200,
+            'precio_costo' => 1800,
+            'tiempo_estimado' => 25,
+            'categoria_articulo_manufacturado_id' => 1, 
+        ]);
+
+        ArticuloManufacturadoDetalle::create([
+            'cantidad' => 1, 
+            'articulo_manufacturado_id' => $articulo->id,
+            'articulo_insumo_id' => 1, 
+        ]);
+
+        ArticuloManufacturadoDetalle::create([
+            'cantidad' => 2, 
+            'articulo_manufacturado_id' => $articulo->id,
+            'articulo_insumo_id' => 2,
+        ]);
+
+        return response()->json(['mensaje' => 'Artículo manufacturado creado con sus ingredientes'], 201);
     }
+
+    
 }
