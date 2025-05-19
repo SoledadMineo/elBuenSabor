@@ -34,4 +34,10 @@ class ArticuloManufacturado extends Model
     {
         return $this->hasMany(ArticuloManufacturadoDetalle::class);
     }
+
+    public function pedidoDetalles()
+    {
+        return $this->hasMany(PedidoVentaDetalle::class);
+    }
+
 }
