@@ -20,7 +20,7 @@ class Cliente extends Model
 
     public function domicilio()
     {
-        return $this->belongsTo(Domicilio::class);
+        return $this->hasOne(Domicilio::class);
     }
 
     public function usuario()

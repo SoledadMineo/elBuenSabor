@@ -15,8 +15,8 @@ class ImagenManufacturado extends Model
         'articulo_manufacturado_id'
     ];
 
-    public function imagenes()
+    public function articuloManufacturado()
     {
-        return $this->hasMany(ImagenManufacturado::class);
+        return $this->belongsTo(ArticuloManufacturado::class);
     }
 }

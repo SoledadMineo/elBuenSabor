@@ -11,4 +11,9 @@ class ImagenInsumo extends Model
     protected $table = 'imagen_insumos';
     protected $fillable = ['denominacion'];
 
+
+    public function articuloInsumeo()
+    {
+        return $this->belongsTo(ArticuloInsumo::class);
+    }
 }

@@ -27,5 +27,17 @@ class ArticuloInsumo extends Model
     {
         return $this->belongsTo(UnidadMedida::class);
     }
+    
+    public function imagenInsumo()
+    {
+        return $this->hasOne(ImagenInsumo::class);
+    }
+
+    public function sucursales()
+    {
+        return $this->belongsToMany(SucursalEmpresa::class, 'sucursal_insumo')
+                    ->withPivot('stockActual', 'stockMinimo', 'stockMaximo')
+                    ->withTimestamps();
+    }
 
 }

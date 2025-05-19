@@ -27,7 +27,7 @@ class ArticuloManufacturado extends Model
 
     public function categoria()
     {
-        return $this->belongsTo(CategoriaArticuloManufacturado::class, 'categoria_articulo_manufacturado_id');
+        return $this->hasOne(CategoriaArticuloManufacturado::class);
     }
 
     public function detalles()

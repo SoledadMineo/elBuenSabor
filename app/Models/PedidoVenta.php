@@ -46,4 +46,9 @@ class PedidoVenta extends Model
     {
         return $this->belongsToMany(SucursalEmpresa::class, 'pedido_venta_sucursal_empresa');
     }
+
+    public function pedidodVentaDetalle()
+    {
+        return $this->hasMany(PedidoVentaDetalle::class);
+    }
 }

@@ -10,11 +10,12 @@ class CategoriaArticuloManufacturado extends Model
     use HasFactory;
 
     protected $table = 'categoria_articulo_manufacturado';
+
     protected $fillable = [
         'denominacion'];
 
     public function articulosManufacturados()
     {
-        return $this->hasMany(ArticuloManufacturado::class);
+        return $this->belongsTo(ArticuloManufacturado::class);
     }
 }

@@ -16,4 +16,12 @@ class Domicilio extends Model
     {
         return $this->belongsTo(Localidad::class);
     }
+
+    public function cliente(){
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function sucursalEmpresa(){
+        return $this->belongsTo(SucursalEmpresa::class);
+    }
 }

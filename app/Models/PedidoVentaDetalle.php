@@ -24,4 +24,9 @@ class PedidoVentaDetalle extends Model
     {
         return $this->belongsTo(PedidoVenta::class);
     }
+ 
+    public function articulo()
+    {
+        return $this->belongsTo(ArticuloManufacturado::class);
+    }
 }

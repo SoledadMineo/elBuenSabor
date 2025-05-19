@@ -19,10 +19,13 @@ class SucursalEmpresa extends Model
         return $this->belongsTo(Empresa::class);
     }
 
-    public function sucursalInsumos()
+    public function articulosInsumo()
     {
-        return $this->hasMany(SucursalInsumo::class);
+        return $this->belongsToMany(ArticuloInsumo::class, 'sucursal_insumo')
+                    ->withPivot('stockActual', 'stockMinimo', 'stockMaximo')
+                    ->withTimestamps();
     }
+
     
     public function pedidoVenta()
     {
@@ -31,7 +34,7 @@ class SucursalEmpresa extends Model
 
     public function domicilio()
     {
-        return $this->belongsTo(Domicilio::class);
+        return $this->hasOne(Domicilio::class);
     }
 
 }

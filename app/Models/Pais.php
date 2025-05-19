@@ -10,6 +10,7 @@ class Pais extends Model
     use HasFactory;
 
     protected $table = 'pais';
+    
     protected $fillable = ['nombre'];
 
     public function provincias()
