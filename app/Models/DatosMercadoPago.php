@@ -26,4 +26,10 @@ class DatosMercadoPago extends Model
     {
         return $this->belongsTo(FacturaVenta::class);
     }
+
+    public function pedido()
+    {
+        return $this->belongsTo(PedidoVenta::class);
+    }
+
 }

@@ -10,9 +10,11 @@ return new class extends Migration
     {
         Schema::create('imagen_insumos', function (Blueprint $table) {
             $table->id();
-            $table->string('denominacion');
+            $table->string('denominacion'); // o path de imagen
+            $table->foreignId('articulo_insumo_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
+
     }
 
     public function down()

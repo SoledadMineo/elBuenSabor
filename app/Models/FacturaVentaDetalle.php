@@ -19,4 +19,9 @@ class FacturaVentaDetalle extends Model
     {
         return $this->belongsTo(FacturaVenta::class);
     }
+
+    public function articulo()
+    {
+        return $this->belongsTo(ArticuloManufacturado::class);
+    }
 }

@@ -19,4 +19,9 @@ class PromocionDetalle extends Model
     {
         return $this->belongsTo(Promocion::class);
     }
+    
+    public function articulo()
+    {
+        return $this->belongsTo(ArticuloManufacturado::class);
+    }
 }

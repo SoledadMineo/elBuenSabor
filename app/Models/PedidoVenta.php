@@ -39,16 +39,22 @@ class PedidoVenta extends Model
 
     public function facturas()
     {
-        return $this->belongsToMany(FacturaVenta::class, 'factura_venta_pedido_venta');
+        return $this->hasMany(FacturaVenta::class);
     }
 
     public function sucursales()
     {
-        return $this->belongsToMany(SucursalEmpresa::class, 'pedido_venta_sucursal_empresa');
+        return $this->belongsTo(SucursalEmpresa::class);
     }
 
     public function pedidodVentaDetalle()
     {
         return $this->hasMany(PedidoVentaDetalle::class);
     }
+    
+    public function datosMercadoPago()
+    {
+        return $this->hasOne(DatosMercadoPago::class);
+    }
+
 }

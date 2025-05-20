@@ -10,13 +10,10 @@ return new class extends Migration
     {
         Schema::create('promocion_detalles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('promocion_id')->constrained()->onDelete('cascade');
+            $table->foreignId('articulo_manufacturado_id')->constrained()->onDelete('cascade');
             $table->integer('cantidad');
             $table->timestamps();
-            $table->unsignedBigInteger('promocion_id');
-            $table->timestamps();
-
-            // Relación con Promoción
-            $table->foreign('promocion_id')->references('id')->on('promociones')->onDelete('cascade');
         });
     }
 

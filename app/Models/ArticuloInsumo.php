@@ -40,4 +40,10 @@ class ArticuloInsumo extends Model
                     ->withTimestamps();
     }
 
+    public function detalles()
+    {
+        return $this->hasMany(ArticuloManufacturadoDetalle::class);
+    }
+
+
 }

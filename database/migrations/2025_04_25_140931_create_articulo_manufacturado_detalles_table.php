@@ -10,9 +10,12 @@ return new class extends Migration
     {
         Schema::create('articulo_manufacturado_detalles', function (Blueprint $table) {
             $table->id();
-            $table->decimal('cantidad', 10, 2);
+            $table->foreignId('articulo_manufacturado_id')->constrained()->onDelete('cascade');
+            $table->foreignId('articulo_insumo_id')->constrained()->onDelete('cascade');
+            $table->double('cantidad');
             $table->timestamps();
-        });
+    });
+
     }
 
     public function down()

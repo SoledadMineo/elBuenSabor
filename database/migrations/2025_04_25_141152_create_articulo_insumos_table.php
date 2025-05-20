@@ -14,6 +14,8 @@ return new class extends Migration
             $table->decimal('precioCompra', 10, 2);
             $table->decimal('precioVenta', 10, 2);
             $table->boolean('esParaElaborar');
+            $table->foreignId('unidad_medida_id')->constrained()->onDelete('cascade');
+            $table->foreignId('categoria_articulo_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

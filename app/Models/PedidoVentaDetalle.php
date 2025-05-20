@@ -29,4 +29,10 @@ class PedidoVentaDetalle extends Model
     {
         return $this->belongsTo(ArticuloManufacturado::class);
     }
+
+    public function detalles()
+    {
+        return $this->hasMany(FacturaVentaDetalle::class);
+    }
+
 }

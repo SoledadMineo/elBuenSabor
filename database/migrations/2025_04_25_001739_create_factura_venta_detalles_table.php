@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('factura_venta_detalles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('factura_venta_id')->constrained()->onDelete('cascade');
+            $table->foreignId('articulo_manufacturado_id')->constrained()->onDelete('cascade');
             $table->integer('cantidad');
-            $table->decimal('subtotal', 10, 2);
-            $table->unsignedBigInteger('factura_venta_id');
-            $table->foreign('factura_venta_id')->references('id')->on('factura_venta')->onDelete('cascade');
+            $table->decimal('sub_total', 10, 2);
             $table->timestamps();
         });
     }

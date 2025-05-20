@@ -17,4 +17,16 @@ class CategoriaArticulo extends Model
     {
         return $this->hasMany(ArticuloInsumo::class);
     }
+
+    // Subcategorías (hijos)
+    public function subcategorias()
+    {
+        return $this->hasMany(CategoriaArticulo::class, 'categoria_padre_id');
+    }
+
+    // Categoría padre
+    public function categoriaPadre()
+    {
+        return $this->belongsTo(CategoriaArticulo::class, 'categoria_padre_id');
+    }
 }
