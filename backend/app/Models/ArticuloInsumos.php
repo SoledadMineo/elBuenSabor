@@ -24,6 +24,6 @@ class ArticuloInsumo extends Model
 
     public function sucursales()
     {
-        return $this->hasMany(SucursalInsumo::class, 'articulo_insumo_id');
+        return $this->hasMany(SucursalInsumo::class);
     }
 }

@@ -20,9 +20,10 @@ return new class extends Migration
             $table->enum('tipoEnvio', ['DELIVERY', 'TAKE AWAY']);
             $table->enum('formaPago', ['EFECTIVO', 'MERCADO PAGO']);
             $table->date('fechaPedido');
+            $table->unsignedBigInteger('sucursal_empresa_id');
             $table->unsignedBigInteger('empleado_id');
             $table->unsignedBigInteger('cliente_id');
-
+            $table->foreign('sucursal_empresa_id')->references('id')->on('sucursal_empresas')->onDelete('cascade');
             $table->foreign('empleado_id')->references('id')->on('empleado')->onDelete('cascade');
             $table->foreign('cliente_id')->references('id')->on('cliente')->onDelete('cascade');
 

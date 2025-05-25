@@ -9,22 +9,27 @@ class Domicilio extends Model
 {
     use HasFactory;
 
-    protected $table = 'domicilio';
+    protected $table = 'domicilios';
 
     protected $fillable = [
         'calle',
-        'numero', 
+        'numero',
         'cp',
         'localidad_id'
     ];
 
     public function sucursalEmpresa()
     {
-        return $this->hasOne(SucursalEmpresa::class);
+        return $this->belongsTo(SucursalEmpresa::class);
     }
 
     public function localidad()
     {
         return $this->belongsTo(Localidad::class);
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
     }
 }

@@ -8,11 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('domicilio', function (Blueprint $table) {
+        Schema::create('domicilios', function (Blueprint $table) {
             $table->id();
             $table->string('calle');
             $table->integer('numero');
             $table->integer('cp');
+            $table->unsignedBigInteger('sucursal_empresa_id');
+            $table->foreign('sucursal_empresa_id')->references('id')->on('sucursalEmpresas')->onDelete('cascade');
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->unsignedBigInteger('localidad_id');
             $table->foreign('localidad_id')->references('id')->on('localidad')->onDelete('cascade');
 
@@ -22,6 +26,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('domicilio');
+        Schema::dropIfExists('domicilios');
     }
 };

@@ -8,13 +8,13 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('sucursal_empresa', function (Blueprint $table) {
+        Schema::create('sucursal_empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('horarioApertura');
             $table->time('horarioCierre');  // Usamos 'time' para almacenar la hora de cierre
-            $table->unsignedBigInteger('domicilio_id')->nullable();
             $table->unsignedBigInteger('empresa_id');
+            $table->unsignedBigInteger('domicilio_id')->nullable();
             $table->timestamps();
 
             // Claves foráneas
@@ -25,6 +25,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('sucursal_empresa');
+        Schema::dropIfExists('sucursal_empresas');
     }
 };

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PedidoVenta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,11 +10,11 @@ class SucursalEmpresa extends Model
 {
     use HasFactory;
 
-    protected $table = 'sucursal_empresa';
+    protected $table = 'sucursal_empresas';
 
     protected $fillable = [
         'nombre',
-        'horarioApertura', 
+        'horarioApertura',
         'horacioCierre',
         'empresa_id',
         'domicilio_id'
@@ -31,11 +32,16 @@ class SucursalEmpresa extends Model
 
     public function domicilio()
     {
-        return $this->belongsTo(Domicilio::class);
+        return $this->hasOne(Domicilio::class);
     }
 
     public function insumos()
     {
         return $this->hasMany(SucursalInsumo::class);
+    }
+
+    public function pedidosVenta()
+    {
+        return $this->hasMany(PedidoVenta::class);
     }
 }

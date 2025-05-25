@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,13 +19,13 @@ class SucursalInsumo extends Model
         'articulo_insumo_id',
     ];
 
-    public function sucursal()
+    public function sucursalEmpresa()
     {
-        return $this->belongsTo(SucursalEmpresa::class, 'sucursal_empresa_id');
+        return $this->belongsTo(SucursalEmpresa::class);
     }
 
     public function articuloInsumo()
     {
-        return $this->belongsTo(ArticuloInsumo::class, 'articulo_insumo_id');
+        return $this->belongsTo(ArticuloInsumo::class);
     }
 }
