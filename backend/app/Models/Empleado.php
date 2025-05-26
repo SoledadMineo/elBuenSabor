@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,12 +10,15 @@ class Empleado extends Model
 {
     use HasFactory;
 
+    protected $table = 'empleados';
+
     protected $fillable = [
         'nombre',
         'apellido',
         'telefono',
         'email',
         'perfil',
+        'usuario_id'
     ];
 
     protected $casts = [
@@ -29,5 +33,10 @@ class Empleado extends Model
     public function facturas()
     {
         return $this->hasMany(FacturaVenta::class);
+    }
+
+    public function usuario()
+    {
+        return $this->hasOne(Cliente::class);
     }
 }

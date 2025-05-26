@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,12 +15,13 @@ class Cliente extends Model
         'nombre',
         'apellido',
         'telefono',
-        'email'
+        'email',
+        'usuario_id'
     ];
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class);
+        return $this->hasOne(Usuario::class);
     }
 
     public function domicilio()

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,11 +18,11 @@ class Usuario extends Model
 
     public function cliente()
     {
-        return $this->hasOne(Cliente::class);
+        return $this->belongsTo(Cliente::class);
     }
 
     public function empleado()
     {
-        return $this->hasOne(Empleado::class);
+        return $this->belongsTo(Empleado::class);
     }
 }

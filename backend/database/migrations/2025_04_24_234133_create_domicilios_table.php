@@ -13,10 +13,10 @@ return new class extends Migration
             $table->string('calle');
             $table->integer('numero');
             $table->integer('cp');
-            $table->unsignedBigInteger('sucursal_empresa_id');
-            $table->foreign('sucursal_empresa_id')->references('id')->on('sucursalEmpresas')->onDelete('cascade');
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
+            // $table->unsignedBigInteger('sucursal_empresa_id');
+            // $table->foreign('sucursal_empresa_id')->references('id')->on('sucursalEmpresas')->onDelete('cascade');
+            // $table->unsignedBigInteger('cliente_id');
+            // $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->unsignedBigInteger('localidad_id');
             $table->foreign('localidad_id')->references('id')->on('localidad')->onDelete('cascade');
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email');
             $table->enum('Rol', ['ADMIN', 'EMPLEADO', 'CLIENTE']);
             $table->unsignedBigInteger('usuario_id')->unique()->nullable();
-            $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,5 +25,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('empleado');
     }
-
 };

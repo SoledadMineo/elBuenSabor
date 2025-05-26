@@ -8,22 +8,22 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
             $table->string('telefono');
             $table->string('email');
             $table->unsignedBigInteger('domicilio_id')->unique()->nullable();
-            $table->foreign('domicilio_id')->references('id')->on('domicilio')->onDelete('cascade');
+            $table->foreign('domicilio_id')->references('id')->on('domicilios')->onDelete('cascade');
             $table->unsignedBigInteger('usuario_id')->unique()->nullable();
-            $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('clientes');
     }
 };

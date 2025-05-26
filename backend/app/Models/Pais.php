@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +17,6 @@ class Pais extends Model
 
     public function provincia()
     {
-        return $this->belongsTo(Provincia::class);
+        return $this->hasMany(Provincia::class);
     }
-
 }
