@@ -8,19 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('articulo_manufacturado', function (Blueprint $table) {
+        Schema::create('promociones', function (Blueprint $table) {
             $table->id();
             $table->string('denominacion');
-            $table->string('descripcion');
-            $table->decimal('precioVenta', 10, 2);
-            $table->decimal('precioCosto', 10, 2);
-            $table->integer('tiempoEstimado');
+            $table->date('fecha_desde');
+            $table->date('fecha_hasta');
+            $table->double('descuento');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('articulo_manufacturado');
+        Schema::dropIfExists('promociones');
     }
 };

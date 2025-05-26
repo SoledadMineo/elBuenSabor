@@ -30,13 +30,8 @@ class Empleado extends Model
         return $this->hasMany(PedidoVenta::class);
     }
 
-    public function facturas()
-    {
-        return $this->hasMany(FacturaVenta::class);
-    }
-
     public function usuario()
     {
-        return $this->hasOne(Cliente::class);
+        return $this->hasOne(Usuario::class);
     }
 }

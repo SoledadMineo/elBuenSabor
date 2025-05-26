@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('sucursal_empresas', function (Blueprint $table) {
+        Schema::create('sucursales_empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('horarioApertura');
@@ -18,13 +18,13 @@ return new class extends Migration
             $table->timestamps();
 
             // Claves foráneas
-            $table->foreign('domicilio_id')->references('id')->on('domicilio')->onDelete('set null');
-            $table->foreign('empresa_id')->references('id')->on('empresa')->onDelete('cascade');
+            $table->foreign('domicilio_id')->references('id')->on('domicilios')->onDelete('set null');
+            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('sucursal_empresas');
+        Schema::dropIfExists('sucursales_empresas');
     }
 };

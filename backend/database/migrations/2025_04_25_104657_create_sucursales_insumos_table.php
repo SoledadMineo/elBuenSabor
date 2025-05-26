@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sucursal_insumos', function (Blueprint $table) {
+        Schema::create('sucursales_insumos', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('sucursal_empresa_id');
@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('sucursal_empresa_id')->references('id')->on('sucursal_empresas')->onDelete('cascade');
+            $table->foreign('sucursal_empresa_id')->references('id')->on('sucursales_empresas')->onDelete('cascade');
             $table->foreign('articulo_insumo_id')->references('id')->on('articulo_insumos')->onDelete('cascade');
             $table->unique(['sucursal_empresa_id', 'articulo_insumo_id']);
         });
@@ -33,6 +33,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('sucursal_insumos');
+        Schema::dropIfExists('sucursales_insumos');
     }
 };

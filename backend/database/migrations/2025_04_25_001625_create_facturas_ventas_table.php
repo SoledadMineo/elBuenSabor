@@ -8,12 +8,16 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('pedido_venta_detalles', function (Blueprint $table) {
+        Schema::create('facturas_ventas', function (Blueprint $table) {
             $table->id();
-            $table->decimal('cantidad', 10, 2);
+            $table->date('fechaFacturacion');
+            $table->integer('numeroComprobante');
+            $table->enum('formaPago', array_column(FormaPago::cases(), 'value'));
+            //$table->enum('formaPago', ['EFECTIVO', 'MERCADO PAGO']);
             $table->decimal('subtotal', 10, 2);
-            $table->unsignedBigInteger('promocion_id')->nullable();
-            $table->foreign('promocion_id')->references('id')->on('promociones')->onDelete('set null');
+            $table->decimal('descuento', 10, 2);
+            $table->decimal('gastosEnvio', 10, 2);
+            $table->decimal('totalVenta', 10, 2);
             $table->unsignedBigInteger('pedido_venta_id');
             $table->foreign('pedido_venta_id')->references('id')->on('pedido_venta')->onDelete('cascade');
             $table->timestamps();
@@ -22,6 +26,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('pedido_venta_detalles');
+        Schema::dropIfExists('facturas_ventas');
     }
 };

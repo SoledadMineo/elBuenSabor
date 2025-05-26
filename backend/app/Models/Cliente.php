@@ -28,4 +28,15 @@ class Cliente extends Model
     {
         return $this->hasOne(Domicilio::class);
     }
+
+    public function pedidoVenta()
+    {
+        return $this->hasMany(PedidoVenta::class);
+    }
+
+    public function facturaVenta()
+    {
+        return $this->hasMany(FacturaVenta::class);
+    }
+
 }

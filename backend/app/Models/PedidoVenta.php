@@ -27,8 +27,35 @@ class PedidoVenta extends Model
         'cliente_id'
     ];
 
-    public function sucursalEmpresa()
+    protected $casts = [
+        'estado' => Estado::class,
+        'tipoEnvio' => TipoEnvio::class,
+        'formaPago' => FormaPago::class,
+    ];
+
+    public function cliente(): BelongsTo
+    {
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function empleado(): BelongsTo
+    {
+        return $this->belongsTo(Empleado::class);
+    }
+
+    public function sucursalEmpresa(): BelongsTo
     {
         return $this->belongsTo(SucursalEmpresa::class);
     }
+
+    public function pedidoVentaDetalles()
+    {
+        return $this->hasMany(PedidoVentaDetalle::class);
+    }
+
+    public function facturaVenta(): HasOne
+    {
+        return $this->hasOne(FacturaVenta::class);
+    }
+
 }

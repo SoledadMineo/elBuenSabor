@@ -9,7 +9,7 @@ class SucursalInsumo extends Model
 {
     use HasFactory;
 
-    protected $table = 'sucursal_insumos';
+    protected $table = 'sucursales_insumos';
 
     protected $fillable = [
         'stockActual',
@@ -26,6 +26,6 @@ class SucursalInsumo extends Model
 
     public function articuloInsumo()
     {
-        return $this->belongsTo(ArticuloInsumo::class);
+        return $this->hasMany(ArticuloInsumo::class);
     }
 }

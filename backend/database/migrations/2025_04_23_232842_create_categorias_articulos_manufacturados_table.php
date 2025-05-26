@@ -8,18 +8,16 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('articulo_insumos', function (Blueprint $table) {
-            $table->id(); // Crea el campo 'id' como clave primaria
+        Schema::create('categorias_articulos_manufacturados', function (Blueprint $table) {
+            $table->id();
             $table->string('denominacion');
-            $table->decimal('precioCompra', 10, 2);
-            $table->decimal('precioVenta', 10, 2);
-            $table->boolean('esParaElaborar');
+            $table->foreignId('articulo_manufacturado_id')->constrained('articulos_manufacturados')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('articulo_insumos');
+        Schema::dropIfExists('categorias_articulos_manufacturados');
     }
 };

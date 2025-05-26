@@ -14,7 +14,8 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('telefono');
             $table->string('email');
-            $table->enum('Rol', ['ADMIN', 'EMPLEADO', 'CLIENTE']);
+            //$table->enum('Rol', ['Admin', 'Empleado', 'Cliente']);
+            $table->enum('rol', array_column(Rol::cases(), 'value'));
             $table->unsignedBigInteger('usuario_id')->unique()->nullable();
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();

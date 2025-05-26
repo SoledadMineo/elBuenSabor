@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ImagenManufacturado extends Model
+class ArticuloManufacturadoDetalle extends Model
 {
     use HasFactory;
 
-    protected $table = 'imagenes_manufacturados';
+    protected $table = 'articulos_manufacturados_detalles';
 
     protected $fillable = [
-        'denominacion',
-        'articulo_manufacturado_id'
-        
+        'cantidad',
+        'articulo_manufacturado_id',
     ];
 
     public function articuloManufacturado()
@@ -22,4 +21,8 @@ class ImagenManufacturado extends Model
         return $this->belongsTo(ArticuloManufacturado::class);
     }
 
+    public function articuloInsumo()
+    {
+        return $this->hasMany(ArticuloInsumo::class);
+    }
 }

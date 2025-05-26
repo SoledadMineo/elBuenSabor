@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('unidad_medidas', function (Blueprint $table) {
+        Schema::create('unidades_medidas', function (Blueprint $table) {
             $table->id();
             $table->string('denominacion');
             $table->timestamps();
@@ -17,6 +17,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('unidad_medidas');
+        Schema::dropIfExists('unidades_medidas');
     }
 };
