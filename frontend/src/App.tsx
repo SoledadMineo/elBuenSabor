@@ -1,19 +1,27 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Menu from "./componentes/Menu";
+
 import Home from "./componentes/Home";
 import Header from "./componentes/Header";
+import MenuGrilla from "./componentes/MenuGrilla";
+import Menu from "./componentes/Menu";
+import Footer from "./componentes/Footer";
+
 
 function App() {
- 
   return (
-    <>
+    <div className="app-container">
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
-    </>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/listado" element={<MenuGrilla />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
   );
 }
 export default App;

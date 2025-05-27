@@ -1,0 +1,75 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  
+  z-index: 1000;           /* para estar por encima */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar {
+  background-color: #4682ab;  /* o el color que uses */
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 24px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo img {
+  width: 100px;
+  height: auto;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: #f5f7f7;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: #9fc4de;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000; /* o el color que uses */
+}
+
+.iniciarSesion,
+.cerrarSesion {
+  background: #f45d5e;
+  border: 1px solid #f19c9b;
+  color: #f5f7f7;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cerrarSesion:hover {
+  background-color: white;
+  color: #f45d5e;
+}

@@ -1,35 +1,33 @@
 import { Link } from 'react-router-dom';
-//import './Header.css'; // estilos aparte para que quede limpio
+import '../Header.css'; // asegurate que la ruta sea correcta
 
-// Simulando un usuario logueado
 const user = {
   nombre: 'Sole'
 };
 
 function Header() {
   return (
-    <header className="header">
-      <div className="logo">
-        <Link to="/">
-          <img src="" alt="Logo" />
+    <nav className="custom-navbar">
+      <div className="navbar-container">
+        {/* Logo a la izquierda */}
+        <Link className="navbar-logo" to="/app">
+          <img src="/images/logo.png" alt="Logo" />
         </Link>
-      </div>
 
-      <nav className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/productos">Productos</Link>
-        <Link to="/carrito">Carrito</Link>
-        <Link to="/quienes-somos">Quiénes Somos</Link>
-      </nav>
-
-      <div className="user-info">
-        {user ? (
-          <span>Hola, {user.nombre}</span>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
+        {/* Navegación y saludo a la derecha */}
+        <ul className="navbar-links">
+          <li><Link to="/app">Home</Link></li>
+          <li><Link to="/donde-estamos">Donde Estamos</Link></li>
+          <li><Link to="/Menu">Menú</Link></li>
+          <li><Link to="/MenuGrilla">Listado</Link></li>
+          <li><Link to="/">Contacto</Link></li>
+          {/* <li>Hola {user.nombre} !</li> */}
+          <li>
+            <button className="iniciarSesion">Iniciar Sesión</button>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
   );
 }
 
