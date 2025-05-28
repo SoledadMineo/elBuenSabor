@@ -19,7 +19,7 @@ function Header() {
           <li><Link to="/app">Home</Link></li>
           <li><Link to="/donde-estamos">Donde Estamos</Link></li>
           <li><Link to="/Menu">Menú</Link></li>
-          <li><Link to="/MenuGrilla">Listado</Link></li>
+          <li><Link to="/listado">Listado</Link></li>
           <li><Link to="/">Contacto</Link></li>
           {/* <li>Hola {user.nombre} !</li> */}
           <li>
